@@ -1,9 +1,9 @@
 name: Publish Module
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - "*"
 
 jobs:
   my_first_job:
