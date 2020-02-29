@@ -1,6 +1,5 @@
 {
   "collectCoverageFrom": ["src/**/*.{ts,tsx,js,jsx}", "!**/__test__/**"],
-  "globals": { "__DEV__": false },
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
   "testMatch": ["<rootDir>/**/__test__/**/*.test.ts?(x)"],
   "transform": { "^.+\\.(ts|tsx)$": "babel-jest" },

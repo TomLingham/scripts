@@ -1,0 +1,11 @@
+{
+  "format:check": "tl-script format:check",
+  "format:fix": "tl-script format:fix",
+  "lint:js:check": "tl-script lint:js:check",
+  "lint:js:fix": "tl-script lint:check",
+  "lint:css:check": "tl-script lint:check",
+  "lint:css:fix": "tl-script lint:fix",
+  "test": "tl-script test",
+  "test:watch": "tl-script test:watch",
+  "types:check": "tl-script types:check"
+}
