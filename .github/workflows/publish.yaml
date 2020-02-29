@@ -1,17 +1,19 @@
 name: Publish Module
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - "*"
 
 jobs:
   my_first_job:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: "13.x"
+          registry-url: "https://registry.npmjs.org"
       - run: npm publish
         env:
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
