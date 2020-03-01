@@ -1,1 +1,1 @@
-module.exports = require("@toml.dev/scripts/config/.babelrc.json");
+module.exports = require("@toml.dev/scripts/config/babel.config.json");
