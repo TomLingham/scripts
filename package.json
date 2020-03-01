@@ -4,7 +4,7 @@
   "description": "A bunch of scripts for development",
   "author": "Tom Lingham <tjlingham@gmail.com>",
   "bin": {
-    "tl-scripts": "./bin/scripts/index.js",
+    "tl-script": "./bin/scripts/index.js",
     "tl-install": "./bin/install/index.js"
   },
   "dependencies": {
