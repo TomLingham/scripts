@@ -3,28 +3,40 @@
 
 const fs = require("fs");
 const path = require("path");
-
 const PWD = process.cwd();
-const pkgPath = path.join(PWD, "package.json");
-const pkg = require(pkgPath);
-const scripts = require("./scripts.json");
 
-// Add a script section if it doesn't exist. Unlikely but just in case.
-if (!("scripts" in pkg)) pkg["scripts"] = {};
-pkg.scripts = { ...scripts, ...pkg.scripts };
+/**
+ * Install the run scripts into the package.json, then write package.json back
+ * to the disk.
+ */
+{
+  const pkgPath = path.join(PWD, "package.json");
+  const pkg = require(pkgPath);
 
-// Write the package.json back with the scripts injected.
-fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
-console.log("@toml.dev npm scripts installed successfully.");
+  pkg.scripts = { ...require("./scripts.json"), ...pkg.scripts };
 
-// Copy the files from the "includes" directory to the root of the project.
-const includesPath = path.resolve(__dirname, "..", "..", "includes");
+  // Write the package.json back with the scripts injected.
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+  console.log("@toml.dev npm scripts installed successfully.");
+}
 
-fs.readdirSync(includesPath).forEach(file => {
-  const fp = path.join(includesPath, file);
-  const dfp = path.join(PWD, file);
-  if (!fs.existsSync(dfp)) fs.copyFileSync(fp, dfp);
-});
+/**
+ * Copy the files from the "includes" directory to the root of the project.
+ */
+{
+  // This is the path to the folder of files that we want to copy.
+  const includesPath = path.resolve(__dirname, "..", "..", "includes");
 
-console.log("@toml.dev config files copied.");
-console.log("Just delete the ones you don't want!");
+  // Get a list of all the files and copy each one, if it doesn't already exist
+  // in the destination path.
+  fs.readdirSync(includesPath).forEach(file => {
+    const filePath = path.join(includesPath, file);
+    const destinationPath = path.join(PWD, file);
+
+    if (!fs.existsSync(destinationPath))
+      fs.copyFileSync(filePath, destinationPath);
+  });
+
+  console.log("@toml.dev config files copied.");
+  console.log("Just delete the ones you don't want!");
+}
