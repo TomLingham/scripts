@@ -19,9 +19,13 @@ fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 console.log("@toml.dev npm scripts installed successfully.");
 
 // Copy the files from the "includes" directory to the root of the project.
-const includeFiles = path.resolve(__dirname, "..", "..", "includes", "*");
-const includeHidden = path.resolve(__dirname, "..", "..", "includes", ".*");
-execSync(`cp -R -n "${includeFiles}" ${PWD}`, { stdio: "inherit" });
-execSync(`cp -R -n "${includeHidden}" ${PWD}`, { stdio: "inherit" });
+const includesPath = path.resolve(__dirname, "..", "..", "includes");
+
+fs.readdirSync(includesPath).forEach(file => {
+  const fp = path.join(includesPath, file);
+  const dfp = path.join(PWD, file);
+  if (!fs.existsSync(dfp)) fs.copyFileSync(fp, dfp);
+});
+
 console.log("@toml.dev config files copied.");
 console.log("Just delete the ones you don't want!");
