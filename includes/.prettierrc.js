@@ -1,1 +1,1 @@
-module.exports = require("@toml.dev/scripts/config/.pretterrc.json");
+module.exports = require("@toml.dev/scripts/config/.prettierrc.json");
