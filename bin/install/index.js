@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
+const cpy = require("cpy");
 const fs = require("fs");
 const path = require("path");
 const PWD = process.cwd();
@@ -29,12 +30,13 @@ const PWD = process.cwd();
 
   // Get a list of all the files and copy each one, if it doesn't already exist
   // in the destination path.
-  fs.readdirSync(includesPath).forEach(file => {
+  fs.readdirSync(includesPath).forEach((file) => {
     const filePath = path.join(includesPath, file);
     const destinationPath = path.join(PWD, file);
 
-    if (!fs.existsSync(destinationPath))
-      fs.copyFileSync(filePath, destinationPath);
+    if (!fs.existsSync(destinationPath)) {
+      cpy(filePath, destinationPath);
+    }
   });
 
   console.log("@toml.dev config files copied.");
