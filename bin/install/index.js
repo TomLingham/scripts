@@ -35,7 +35,7 @@ const PWD = process.cwd();
     const destinationPath = path.join(PWD, file);
 
     if (!fs.existsSync(destinationPath)) {
-      cpy(filePath, destinationPath);
+      cpy(filePath, PWD);
     }
   });
 
