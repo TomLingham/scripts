@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@types/jest": "latest",
+    "@types/node": "latest",
+    "prettier": "1.x"
+  }
+}
