@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-'use strict';
+"use strict";
 
 const { execSync } = require("child_process");
 const commands = require("./commands");

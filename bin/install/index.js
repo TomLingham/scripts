@@ -4,6 +4,7 @@
 const fs = require("fs-extra");
 const path = require("path");
 const PWD = process.cwd();
+const [] = process.argv0;
 
 /**
  * Install the run scripts into the package.json, then write package.json back
@@ -32,11 +33,11 @@ const PWD = process.cwd();
   fs.readdirSync(includesPath).forEach((file) => {
     const filePath = path.join(includesPath, file);
     const destinationPath = path.join(PWD, file);
-  
+
     if (!fs.existsSync(destinationPath)) {
       fs.copy(filePath, destinationPath);
     }
-  })
+  });
 
   console.log("@toml.dev config files copied.");
   console.log("Just delete the ones you don't want!");

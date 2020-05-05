@@ -36,7 +36,9 @@ files with the same names.
 
 ### Babel
 
-Configured with React, Styled Components, and as the Typescript parser.
+Configured with React, Styled Components, and as the Typescript parser. It will
+also copy a script for including babel register in various run scripts into
+`./scripts/babel.js`.
 
 ### Editor Config
 
