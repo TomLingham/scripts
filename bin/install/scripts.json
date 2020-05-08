@@ -1,11 +1,12 @@
 {
-  "format:check": "tl-script format:check",
-  "format:fix": "tl-script format:fix",
-  "lint:js:check": "tl-script lint:js:check",
-  "lint:js:fix": "tl-script lint:check",
-  "lint:css:check": "tl-script lint:check",
-  "lint:css:fix": "tl-script lint:fix",
-  "test": "tl-script test",
-  "test:watch": "tl-script test:watch",
-  "types:check": "tl-script types:check"
+  "format": "prettier '**/*.{js,md,ts,tsx}'",
+  "format:check": "npm run -s format -- -l",
+  "format:fix": "npm run -s format -- --write",
+  "lint:js:check": "eslint 'src/**/*.{js,ts,tsx}'",
+  "lint:js:fix": "npm run -s lint:js:check -- --fix",
+  "lint:css:check": "stylelint 'src/**/*.{js,ts,tsx}'",
+  "lint:css:fix": "npm run -s lint:css:check -- --fix",
+  "test": "jest --verbose",
+  "test:watch": "npm run -s test -- --watch",
+  "types:check": "tsc --noEmit"
 }

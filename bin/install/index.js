@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 "use strict";
 
-const fs = require("fs-extra");
 const path = require("path");
+const fs = require("fs-extra");
 const PWD = process.cwd();
-const [] = process.argv0;
+const pjson = require("../../package.json");
 
 /**
  * Install the run scripts into the package.json, then write package.json back
@@ -14,10 +14,18 @@ const [] = process.argv0;
   const pkgPath = path.join(PWD, "package.json");
   const pkg = require(pkgPath);
 
+  // If it's the default, I'm going to feel fine overwriting it
+  if (pkg.scripts["test"] === 'echo "Error: no test specified" && exit 1')
+    delete pkg.scripts.test;
+
   pkg.scripts = { ...require("./scripts.json"), ...pkg.scripts };
 
   // Write the package.json back with the scripts injected.
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+
+  const packages = Object.keys(pjson.peerDependencies);
+  console.log("Run the following to install the required packages")
+  console.log(`\n\x1b[36mnpm install -d \\\n  ${packages.join(" \\\n  ")}\x1b[0m\n`);
   console.log("@toml.dev npm scripts installed successfully.");
 }
 
@@ -40,5 +48,7 @@ const [] = process.argv0;
   });
 
   console.log("@toml.dev config files copied.");
-  console.log("Just delete the ones you don't want!");
 }
+
+console.log("Delete the files, scripts, and devDependencies you don't need!");
+console.log("Don't forget to install any peer dependencies.");
