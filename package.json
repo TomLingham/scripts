@@ -1,6 +1,6 @@
 {
   "name": "@toml.dev/scripts",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "A bunch of scripts for development",
   "author": "Tom Lingham <tjlingham@gmail.com>",
   "bin": {
