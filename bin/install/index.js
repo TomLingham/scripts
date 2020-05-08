@@ -24,8 +24,10 @@ const pjson = require("../../package.json");
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
   const packages = Object.keys(pjson.peerDependencies);
-  console.log("Run the following to install the required packages")
-  console.log(`\n\x1b[36mnpm install -d \\\n  ${packages.join(" \\\n  ")}\x1b[0m\n`);
+  console.log("Run the following to install the required packages");
+  console.log(
+    `\n\x1b[36mnpm install -D \\\n  ${packages.join(" \\\n  ")}\x1b[0m\n`
+  );
   console.log("@toml.dev npm scripts installed successfully.");
 }
 
