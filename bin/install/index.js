@@ -1,12 +1,9 @@
-#!/usr/bin/env node
 "use strict";
 
 const path = require("path");
 const fs = require("fs-extra");
 const PWD = process.cwd();
 const pjson = require("../../package.json");
-
-console.log(process); process.exit(0);
 
 /**
  * Install the run scripts into the package.json, then write package.json back
