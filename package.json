@@ -3,41 +3,16 @@
   "version": "4.2.0",
   "description": "A bunch of scripts for development",
   "author": "Tom Lingham <tjlingham@gmail.com>",
-  "script": {
-    "postinstall": "node bin/install/index.js && npm uninstall @toml.dev/scripts"
+  "scripts": {
+    "postinstall": "node bin/install/index.js"
   },
   "dependencies": {
-    "fs-extra": "^9.1.0",
-    "@babel/core": "7.x",
-    "@babel/plugin-proposal-class-properties": "7.x",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "7.x",
-    "@babel/plugin-proposal-object-rest-spread": "7.x",
-    "@babel/plugin-proposal-optional-chaining": "7.x",
-    "@babel/preset-env": "7.x",
-    "@babel/preset-react": "7.x",
-    "@babel/preset-typescript": "7.x",
-    "@babel/register": "7.x",
-    "@typescript-eslint/eslint-plugin": "4.x",
-    "@typescript-eslint/parser": "4.x",
-    "babel-jest": "26.x",
-    "babel-loader": "8.x",
-    "babel-plugin-styled-components": "1.x",
-    "core-js": "3.x",
-    "eslint": "7.x",
-    "eslint-plugin-react": "7.x",
-    "jest": "26.x",
-    "jest-styled-components": "7.x",
-    "prettier": "2.x",
-    "stylelint": "13.x",
-    "stylelint-config-recommended": "3.x",
-    "stylelint-config-styled-components": "0.x",
-    "stylelint-processor-styled-components": "1.x",
-    "typescript": "4.x"
+    "fs-extra": "^9.1.0"
   },
   "devDependencies": {
     "prettier": "^2.2.1"
   },
-  "optionalDependencies": {
+  "peerDependencies": {
     "@babel/core": "7.x",
     "@babel/plugin-proposal-class-properties": "7.x",
     "@babel/plugin-proposal-nullish-coalescing-operator": "7.x",
@@ -63,5 +38,82 @@
     "stylelint-config-styled-components": "0.x",
     "stylelint-processor-styled-components": "1.x",
     "typescript": "4.x"
+  },
+  "peerDependenciesMeta": {
+    "@babel/core": {
+      "optional": true
+    },
+    "@babel/plugin-proposal-class-properties": {
+      "optional": true
+    },
+    "@babel/plugin-proposal-nullish-coalescing-operator": {
+      "optional": true
+    },
+    "@babel/plugin-proposal-object-rest-spread": {
+      "optional": true
+    },
+    "@babel/plugin-proposal-optional-chaining": {
+      "optional": true
+    },
+    "@babel/preset-env": {
+      "optional": true
+    },
+    "@babel/preset-react": {
+      "optional": true
+    },
+    "@babel/preset-typescript": {
+      "optional": true
+    },
+    "@babel/register": {
+      "optional": true
+    },
+    "@typescript-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@typescript-eslint/parser": {
+      "optional": true
+    },
+    "babel-jest": {
+      "optional": true
+    },
+    "babel-loader": {
+      "optional": true
+    },
+    "babel-plugin-styled-components": {
+      "optional": true
+    },
+    "core-js": {
+      "optional": true
+    },
+    "eslint": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "jest": {
+      "optional": true
+    },
+    "jest-styled-components": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    },
+    "stylelint": {
+      "optional": true
+    },
+    "stylelint-config-recommended": {
+      "optional": true
+    },
+    "stylelint-config-styled-components": {
+      "optional": true
+    },
+    "stylelint-processor-styled-components": {
+      "optional": true
+    },
+    "typescript": {
+      "optiona": true
+    }
   }
 }
